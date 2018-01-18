@@ -1,0 +1,280 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html
+{
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: black;
+    font-family: sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    overflow: hidden;
+}
+
+/* Portrait layout (default) */
+.app {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.top
+{
+    display: inline-block;
+    width: 100%;
+    height: 24px;
+    background-color: #DDD;
+    font-size: 2.5em;
+    color: black;
+    padding: 12px 12px 24px 12px;
+    text-align: left;
+}
+
+.logo
+{
+    display: inline-block;
+    position: absolute;
+    background-size: 100%;
+    width: 45px;
+    height: 54px;
+    left: 4px;
+    top: 4px;
+}
+
+#status
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    webkit-transform:translateZ(1px);
+    -moz-transform:translateZ(1px);
+    -o-transform:translateZ(1px);
+    transform:translateZ(1px);
+}
+
+#logo
+{
+    -webkit-animation-delay: .25s;
+    -moz-animation-delay: .25s;
+    -ms-animation-delay: .25s;
+    animation-delay: .25s;
+}
+
+.content
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 6px;
+    color: white;
+    position: relative;
+}
+
+@media screen and (orientation: portrait) 
+{
+    .content
+    {
+        margin-top: 40%;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 960px) 
+{
+    .content
+    {
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+}
+
+#message
+{
+    box-sizing: border-box;
+    font-size: 1.5em;
+    background-color: black;
+    padding: 15px 5px 15px 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    text-align: left;
+    width: 100%;
+}
+
+#message span
+{
+    display: inline-block;
+    width: 100%;
+}
+
+#bar
+{
+    margin-top: 120px;
+    -webkit-transform:translateZ(2px);
+    -moz-transform:translateZ(2px);
+    -o-transform:translateZ(2px);
+    transform:translateZ(2px);
+}
+
+.bar
+{
+    border-sizing: border-box;
+    display: inline-block;
+    background-color: #30b2fd;
+    height: 0px;
+    width: 100%;
+    border: 0px solid white;
+    border-left-style: none;
+    border-right-style: none;
+    overflow: hidden;
+
+    /*-webkit-transition: height 0.5s linear, margin 0.5s linear;
+    -moz-transition: height 0.5s linear, margin 0.5s linear;
+    -ms-transition: height 0.5s linear, margin 0.5s linear;
+    transition: height 0.5s linear, margin 0.5s linear;*/
+}
+
+.bar-show
+{
+    height: 150px;
+    border: 5px solid white;
+    border-left-style: none;
+    border-right-style: none;
+    margin-top: 45px !important;
+
+    /*-webkit-transition: height 0.5s linear, margin 0.5s linear;
+    -moz-transition: height 0.5s linear, margin 0.5s linear;
+    -ms-transition: height 0.5s linear, margin 0.5s linear;
+    transition: height 0.5s linear, margin 0.5s linear;*/
+}
+
+.bubble
+{
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-position: center;
+    background-size: 66%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+
+.bubble span
+{
+    position: absolute;
+    bottom: -20px;
+    left: 0px;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.row
+{
+    display: inline-block;
+    width: 100%;
+}
+
+.col
+{
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.waiting {
+    background-color:#333333;
+    display:block;
+}
+
+.done {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+#starfield
+{
+    background: radial-gradient(ellipse at top, #1B2735 0%, #090A0F 100%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
